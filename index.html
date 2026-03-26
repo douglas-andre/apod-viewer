@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA APOD Viewer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>APOD</h2>
+
+            <label for="date">Select a date</label>
+            <input type="date" id="date" />
+
+            <p class="hint">
+                Choose a date to view NASA's Astronomy Picture or Video of the Day.
+            </p>
+        </aside>
+
+        <!-- CONTENT -->
+        <main class="content">
+
+            <!-- WELCOME -->
+            <section class="welcome" id="welcome">
+                <h1>Astronomy Picture of the Day</h1>
+                <p>
+                    NASA publishes a daily image or video of the universe along with a scientific explanation.
+                </p>
+                <span>
+                    To get started, select a date from the menu ☄️
+                </span>
+            </section>
+
+            <!-- RESULT -->
+            <section class="result hidden" id="content">
+                <h1 id="title"></h1>
+
+                <!-- LOADING -->
+                <p id="loading" class="loading hidden">Loading... ⏳</p>
+
+                <img id="image" alt="" />
+                <iframe id="video" class="hidden" frameborder="0" allowfullscreen allow="autoplay; encrypted-media">
+                </iframe>
+
+                <p id="description"></p>
+            </section>
+
+            <!-- ERROR -->
+            <p class="error hidden" id="error"></p>
+
+            <!-- VIDEO FALLBACK -->
+            <p class="video-unavailable hidden" id="video-unavailable">
+                This video cannot be displayed here.
+                <a id="video-link" href="" target="_blank" rel="noopener noreferrer">
+                    Watch on NASA website ↗
+                </a>
+            </p>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

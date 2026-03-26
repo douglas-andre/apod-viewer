@@ -1,0 +1,333 @@
+/* =========================================================
+    1) RESET / BASE
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sets 1rem = 10px for easier rem calculations throughout the stylesheet */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0f19;
+    color: #ffffff;
+    min-height: 100vh;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+/* =========================================================
+    2) UTILITIES
+========================================================= */
+.hidden {
+    display: none;
+}
+
+.loading {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #9ca3af;
+}
+
+/* =========================================================
+    3) LAYOUT — MOBILE FIRST
+========================================================= */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    width: 100%;
+    padding: 1.6rem;
+    margin: 0 auto;
+}
+
+/* =========================================================
+    4) SIDEBAR
+========================================================= */
+.sidebar {
+    width: 100%;
+    padding: 1.6rem;
+    background-color: #111827;
+    border-bottom: 0.1rem solid #1f2933;
+}
+
+.sidebar h2 {
+    margin-bottom: 1.6rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.sidebar label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    color: #d1d5db;
+}
+
+.sidebar input {
+    width: 100%;
+    padding: 1.1rem;
+    border-radius: 0.6rem;
+    border: 0.1rem solid #1f2933;
+    background: #0b0f19;
+    color: #ffffff;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+.sidebar input:focus {
+    border-color: #374151;
+}
+
+.hint {
+    margin-top: 1.2rem;
+    font-size: 1.25rem;
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+/* =========================================================
+    5) WELCOME SCREEN
+========================================================= */
+.welcome {
+    text-align: center;
+    margin-top: 4.8rem;
+    color: #d1d5db;
+}
+
+.welcome h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.welcome p {
+    max-width: 65ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.welcome span {
+    display: block;
+    margin-top: 1.8rem;
+    font-size: 1.3rem;
+    color: #9ca3af;
+}
+
+/* =========================================================
+    6) RESULT (TITLE / IMAGE / VIDEO / DESCRIPTION)
+========================================================= */
+.result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result h1 {
+    width: 100%;
+    max-width: 72ch;
+    margin: 0 auto 1.6rem;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#image {
+    width: 100%;
+    max-width: 72ch;
+    margin: 0 auto 1.6rem;
+    max-height: 45vh;
+    object-fit: cover;
+    border-radius: 1.2rem;
+}
+
+#description {
+    width: 100%;
+    max-width: 72ch;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    background: rgba(17, 24, 39, 0.55);
+    border: 0.1rem solid #1f2933;
+    line-height: 1.75;
+    color: #d1d5db;
+}
+
+/* max-height is intentionally omitted — combining it with aspect-ratio
+   would shrink the height while keeping the width, breaking the 16:9 ratio. */
+#video {
+    width: 100%;
+    max-width: 72ch;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 1.6rem;
+    border-radius: 1.2rem;
+    border: none;
+}
+
+/* =========================================================
+    7) ERRORS & FALLBACKS
+========================================================= */
+.error {
+    margin-top: 2rem;
+    text-align: center;
+    color: #f87171;
+}
+
+.video-unavailable {
+    margin-top: 2rem;
+    text-align: center;
+    color: #d1d5db;
+}
+
+.video-unavailable a {
+    color: #ffffff;
+    text-underline-offset: 0.3rem;
+}
+
+.video-unavailable a:hover {
+    color: #9ca3af;
+}
+
+/* =========================================================
+    8) BREAKPOINTS
+========================================================= */
+
+/* ---------- 480px ---------- */
+@media (min-width: 48rem) {
+    .sidebar {
+        padding: 2rem;
+    }
+
+    .content {
+        padding: 2rem;
+    }
+
+    .welcome {
+        margin-top: 6rem;
+    }
+
+    #image {
+        max-height: 55vh;
+    }
+
+    #description {
+        padding: 1.8rem;
+    }
+}
+
+/* ---------- 768px (tablet) ---------- */
+@media (min-width: 76.8rem) {
+    .sidebar {
+        padding: 2.4rem;
+    }
+
+    .content {
+        padding: 2.4rem;
+    }
+
+    .welcome h1 {
+        font-size: 2.8rem;
+    }
+
+    #image {
+        max-height: 60vh;
+    }
+
+    #description {
+        padding: 2rem;
+    }
+}
+
+/* ---------- 1024px (desktop) ---------- */
+@media (min-width: 102.4rem) {
+    :root {
+        --result-block-h: clamp(36rem, 52vh, 56rem);
+        --top-pad: clamp(3.2rem, 6vh, 6.4rem);
+    }
+
+    .container {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 28rem;
+        border-bottom: none;
+        border-right: 0.1rem solid #1f2933;
+
+        position: sticky;
+        top: 0;
+        height: 100vh;
+
+        padding-top: var(--top-pad);
+        padding-bottom: 3.2rem;
+    }
+
+    .content {
+        max-width: 120rem;
+        padding: var(--top-pad) 3.2rem 3.2rem;
+    }
+
+    .result {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.2rem;
+        align-items: stretch;
+    }
+
+    .result h1 {
+        grid-column: 1 / -1;
+        max-width: none;
+        margin: 0 0 1.6rem;
+        text-align: left;
+    }
+
+    #image {
+        grid-column: 1;
+        width: 100%;
+        height: var(--result-block-h);
+        max-height: var(--result-block-h);
+        margin: 0;
+    }
+
+    /* aspect-ratio is unset so the grid-controlled height takes over —
+       keeping it active would conflict with the explicit height value. */
+    #video {
+        grid-column: 1;
+        width: 100%;
+        height: var(--result-block-h);
+        max-height: var(--result-block-h);
+        aspect-ratio: unset;
+        margin: 0;
+    }
+
+    #description {
+        grid-column: 2;
+        width: 100%;
+        height: var(--result-block-h);
+        max-height: var(--result-block-h);
+        overflow: auto;
+        padding: 2rem;
+        scrollbar-width: thin;
+    }
+}
+
+/* =========================================================
+    9) EXTRAS
+========================================================= */
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(1.3);
+    cursor: pointer;
+}
