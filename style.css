@@ -162,6 +162,7 @@ body {
     border: 0.1rem solid #1f2933;
     line-height: 1.75;
     color: #d1d5db;
+    text-align: justify;
 }
 
 /* max-height is intentionally omitted — combining it with aspect-ratio
